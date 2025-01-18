@@ -1,0 +1,16 @@
+{
+	"name": "cli-dice-game",
+	"version": "1.0.0",
+	"description": "a non transitive dice game for my internship in Itransition",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "CLI dice game"
+	},
+	"author": "Ruben Lopez del Castillo",
+	"license": "ISC"
+}
