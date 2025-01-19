@@ -12,5 +12,8 @@
 		"url": "CLI dice game"
 	},
 	"author": "Ruben Lopez del Castillo",
-	"license": "ISC"
+	"license": "ISC",
+	"dependencies": {
+		"@inquirer/prompts": "^7.2.3"
+	}
 }
