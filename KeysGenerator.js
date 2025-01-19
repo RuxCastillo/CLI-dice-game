@@ -9,13 +9,13 @@ class KeysGenerator {
 		return this.key;
 	}
 	generateNewKey() {
-		this.key = crypto.randomBytes(32);
+		this.key = crypto.randomBytes(32).toString('hex').toUpperCase();
 		return this.key;
 	}
 	getNumber() {
 		return this.key;
 	}
-	getNumber(min, max) {
+	generateNumber(min, max) {
 		const range = max - min + 1;
 		const randomValue = crypto.randomBytes(1).readUInt8(0) % range;
 		this.number = min + randomValue;
