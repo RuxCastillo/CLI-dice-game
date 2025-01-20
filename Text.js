@@ -29,7 +29,12 @@ export default class Text {
 		}
 	}
 	chooseDice() {
-		console.log('choose your dice');
+		console.log('Choose your dice');
+	}
+	diceList(runTimeInfo) {
+		for (let i = 0; i < runTimeInfo.unusedDice.length; i++) {
+			console.log(`${i} - ${runTimeInfo.unusedDice[i]}`);
+		}
 	}
 	addNumber() {
 		console.log('Add your number modulo 6');
@@ -37,18 +42,29 @@ export default class Text {
 	yourThrow() {
 		console.log("It's time for your throw");
 	}
+	yourThrowResult(result) {
+		console.log('Your throw is ' + result);
+	}
+	computerThrowResult(result) {
+		console.log('My throw is ' + result);
+	}
+	computerThrow() {
+		console.log("It's time for my throw");
+	}
 	sumOfNumbers(computer, player) {
 		let result = (computer + player) % 6;
-		console.log('The result is ' + computer + ' + ' + player + ' = ' + result);
+		console.log(
+			'The result is ' + computer + ' + ' + player + ' = ' + result + ' (mod 6)'
+		);
 	}
 	result(dice, sumOfNumbers) {
 		console.log('Your throw is ' + dice[sumOfNumbers]);
 	}
 	winner(computer, player) {
 		if (computer < player) {
-			console.log(`You win (${player} > ${computer}`);
+			console.log(`You win (${player} > ${computer})`);
 		} else {
-			console.log(`You lose (${computer} > ${player}`);
+			console.log(`You lose (${player} < ${computer})`);
 		}
 	}
 	diceUsed() {
@@ -56,5 +72,11 @@ export default class Text {
 	}
 	yourSelection(num) {
 		console.log('Your selection: ' + num);
+	}
+	computerSelectDice(dice) {
+		console.log('Computer select: ' + dice);
+	}
+	computerFirst(dice) {
+		console.log('I make the first move and choose the ' + dice + ' dice');
 	}
 }
