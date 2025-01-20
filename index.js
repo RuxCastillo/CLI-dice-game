@@ -2,7 +2,6 @@ import isDiceValid from './isDiceValid.js';
 import KeysGenerator from './KeysGenerator.js';
 import HMAC from './HMAC.js';
 import protocolFunc from './protocolo.js';
-import readline from 'readline';
 import RunTimeInfo from './RunTimeInfo.js';
 import Text from './text.js';
 import firstTurnHistory from './firstTurnHistory.js';
@@ -19,13 +18,10 @@ runTimeInfo.updateUnusedDice();
 const keysGenerator = new KeysGenerator();
 const hmac = new HMAC();
 export const text = new Text();
-const rl = readline.createInterface({
-	input: process.stdin,
-	output: process.stdout,
-});
 export let protocol = protocolFunc(hmac, keysGenerator);
 
 await firstTurnHistory(runTimeInfo, text, protocol);
 await selectionOfDice(runTimeInfo, text);
 await throwTurns();
 final();
+process.exit(0);
