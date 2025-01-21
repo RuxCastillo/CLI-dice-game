@@ -1,10 +1,12 @@
 import { input } from '@inquirer/prompts';
+import { table } from './index.js';
 
 export default async function selectionOfDice(runTimeInfo, text) {
 	runTimeInfo.updateUnusedDice();
 	if (runTimeInfo.turn === 'player') {
 		text.chooseDice();
 		text.diceList(runTimeInfo);
+		text.menuFinal();
 		const lengthOfList = runTimeInfo.unusedDice.length;
 		const answer = await input({
 			message: 'Your selection: ',
@@ -14,7 +16,8 @@ export default async function selectionOfDice(runTimeInfo, text) {
 					process.exit(0);
 				}
 				if (num === '?') {
-					console.log('seleccionaste ayuda');
+					table.printTable();
+					return 'When finished with the help, select a number to continue the game.';
 				}
 				if (isNaN(num)) {
 					return 'Please input a valid number';
@@ -42,6 +45,7 @@ export default async function selectionOfDice(runTimeInfo, text) {
 
 		text.chooseDice();
 		text.diceList(runTimeInfo);
+		text.menuFinal();
 
 		const answer = await input({
 			message: 'Your selection: ',
@@ -51,7 +55,8 @@ export default async function selectionOfDice(runTimeInfo, text) {
 					process.exit(0);
 				}
 				if (num === '?') {
-					console.log('seleccionaste ayuda');
+					table.printTable();
+					return 'When finished with the help, select a number to continue the game.';
 				}
 				if (isNaN(num)) {
 					return 'Please input a valid number';

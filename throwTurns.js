@@ -1,5 +1,6 @@
 import { runTimeInfo, text, protocol } from './index.js';
 import { input } from '@inquirer/prompts';
+import { table } from './index.js';
 
 export default async function throwTurns() {
 	if (runTimeInfo.turn === 'player') {
@@ -36,7 +37,8 @@ async function sameFunctionalityInThrows() {
 				process.exit(0);
 			}
 			if (num === '?') {
-				console.log('seleccionaste ayuda');
+				table.printTable();
+				return 'When finished with the help, select a number to continue the game.';
 			}
 			if (isNaN(num)) {
 				return 'Please input a valid number';

@@ -17,9 +17,8 @@ export default async function firstTurnHistory(runTimeInfo, text, protocol) {
 				process.exit(0);
 			}
 			if (num === '?') {
-				console.log('seleccionaste ayuda');
 				table.printTable();
-				return;
+				return 'When finished with the help, select a number to continue the game.';
 			}
 			if (isNaN(num)) {
 				return 'Please input a valid number';

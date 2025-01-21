@@ -13,6 +13,9 @@ export default class ProbabilityTable {
 		this.table.push(row);
 	}
 	printTable() {
+		console.log('\n');
+		printHelp();
+		console.log('\n');
 		console.log(this.table.toString());
 	}
 	addInitialRows(headers) {
@@ -35,4 +38,17 @@ function buildProbability(a, b) {
 	let prob = a.reduce((count, x) => count + b.filter((y) => x > y).length, 0);
 	prob = prob / 36;
 	return prob.toFixed(4);
+}
+
+function printHelp() {
+	console.log(
+		'1. Guess who starts; the system generates a number (0 or 1) with HMAC to ensure fairness.'
+	);
+	console.log('2. Choose a set of dice to use during the game.');
+	console.log(
+		'3. Roll a die each turn by selecting a number from 0 to 5 (mod 6).'
+	);
+	console.log(
+		"4. Compare your result with the opponent's; the higher number wins."
+	);
 }
