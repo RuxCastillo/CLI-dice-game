@@ -2,7 +2,8 @@ import Table from 'cli-table3';
 import { table } from './index.js';
 
 export default class ProbabilityTable {
-	constructor(headers) {
+	constructor(headersOriginal) {
+		let headers = [...headersOriginal];
 		headers.unshift('User dice v');
 		this.table = new Table({
 			head: headers,

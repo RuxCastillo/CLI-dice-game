@@ -14,16 +14,24 @@ export default async function throwTurns() {
 async function playerThrow() {
 	text.yourThrow();
 	await sameFunctionalityInThrows();
+	let modificationsDice = runTimeInfo.playerDice.split(',').map(Number);
+	let positionInDice =
+		(runTimeInfo.currentProtocol.num + runTimeInfo.playerSelection) % 6;
+	runTimeInfo.playerResult = modificationsDice[positionInDice];
 	text.yourThrowResult(runTimeInfo.playerResult);
 }
 
 async function computerThrow() {
 	text.computerThrow();
 	await sameFunctionalityInThrows();
+	let modificationsDice = runTimeInfo.computerDice.split(',').map(Number);
+	let positionInDice =
+		(runTimeInfo.currentProtocol.num + runTimeInfo.playerSelection) % 6;
+	runTimeInfo.computerResult = modificationsDice[positionInDice];
 	text.computerThrowResult(runTimeInfo.computerResult);
 }
 
-async function sameFunctionalityInThrows() {
+async function sameFunctionalityInThrows(flag) {
 	runTimeInfo.currentProtocol = protocol(0, 5);
 	text.randomValue(runTimeInfo.currentProtocol.theHmac, 5);
 	text.addNumber();
@@ -57,8 +65,4 @@ async function sameFunctionalityInThrows() {
 		runTimeInfo.currentProtocol.num,
 		runTimeInfo.playerSelection
 	);
-	let modificationsDice = runTimeInfo.computerDice.split(',').map(Number);
-	let positionInDice =
-		(runTimeInfo.currentProtocol.num + runTimeInfo.playerSelection) % 6;
-	runTimeInfo.computerResult = modificationsDice[positionInDice];
 }
