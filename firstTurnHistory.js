@@ -1,4 +1,5 @@
 import { input } from '@inquirer/prompts';
+import { table } from './index.js';
 
 export default async function firstTurnHistory(runTimeInfo, text, protocol) {
 	text.firstMove();
@@ -17,6 +18,8 @@ export default async function firstTurnHistory(runTimeInfo, text, protocol) {
 			}
 			if (num === '?') {
 				console.log('seleccionaste ayuda');
+				table.printTable();
+				return;
 			}
 			if (isNaN(num)) {
 				return 'Please input a valid number';

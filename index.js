@@ -8,6 +8,7 @@ import firstTurnHistory from './firstTurnHistory.js';
 import selectionOfDice from './selectionOfDice.js';
 import throwTurns from './throwTurns.js';
 import final from './final.js';
+import ProbabilityTable from './probabilityTable.js';
 
 export const runTimeInfo = new RunTimeInfo();
 runTimeInfo.dice = process.argv.slice(2);
@@ -17,6 +18,7 @@ runTimeInfo.updateUnusedDice();
 
 const keysGenerator = new KeysGenerator();
 const hmac = new HMAC();
+export const table = new ProbabilityTable(runTimeInfo.dice);
 export const text = new Text();
 export let protocol = protocolFunc(hmac, keysGenerator);
 
